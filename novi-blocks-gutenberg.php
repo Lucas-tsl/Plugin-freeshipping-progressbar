@@ -198,6 +198,15 @@ function custom_block_assets()
 add_action('enqueue_block_editor_assets', 'custom_block_assets');
 
 
+function jozz_enqueue_styles() {
+    wp_enqueue_style(
+        'jozz-progressive-bar-css',
+        plugin_dir_url(__FILE__) . 'assets/style.css',
+        array(),
+        filemtime(plugin_dir_path(__FILE__) . 'assets/style.css') // Ajoute une version basée sur la modification du fichier
+    );
+}
+add_action('wp_enqueue_scripts', 'jozz_enqueue_styles');
 
 
 
